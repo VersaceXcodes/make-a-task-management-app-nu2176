@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { use_app_store, Notification } from '@/store/main';
+import { useAppStore, Notification } from '@/store/main';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
@@ -36,18 +36,18 @@ const GV_TopNav: React.FC = () => {
   const queryClient = useQueryClient();
 
   // Global app store state & setters
-  const token = use_app_store((state) => state.auth.token);
-  const isAuthenticated = use_app_store((state) => state.auth.is_authenticated);
-  const user_profile = use_app_store((state) => state.user_profile);
-  const user_setting = use_app_store((state) => state.user_setting);
-  const notifications = use_app_store((state) => state.notifications);
-  const unreadNotificationCount = use_app_store((state) => state.unread_count);
+  const token = useAppStore((state) => state.auth.token);
+  const isAuthenticated = useAppStore((state) => state.auth.is_authenticated);
+  const user_profile = useAppStore((state) => state.user_profile);
+  const user_setting = useAppStore((state) => state.user_setting);
+  const notifications = useAppStore((state) => state.notifications);
+  const unreadNotificationCount = useAppStore((state) => state.unread_count);
 
-  const set_auth = use_app_store((state) => state.set_auth);
-  const set_user_profile = use_app_store((state) => state.set_user_profile);
-  const set_user_setting = use_app_store((state) => state.set_user_setting);
-  const set_notifications = use_app_store((state) => state.set_notifications);
-  const set_unread_count = use_app_store((state) => state.set_unread_count);
+  const set_auth = useAppStore((state) => state.set_auth);
+  const set_user_profile = useAppStore((state) => state.set_user_profile);
+  const set_user_setting = useAppStore((state) => state.set_user_setting);
+  const set_notifications = useAppStore((state) => state.set_notifications);
+  const set_unread_count = useAppStore((state) => state.set_unread_count);
 
   // Local state variables
   const [searchQuery, set_searchQuery] = useState<string>('');
