@@ -45,7 +45,7 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-function App() {
+export default function App() {
   const isAuthenticated = false; // Replace with actual auth logic
   return (
     <Router>
